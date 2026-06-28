@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asma Abdulrahman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:    #F5EFE2;
+      --warm:    #EDE3CF;
+      --terra:   #C4714A;
+      --earth:   #7A5C3A;
+      --bark:    #3D2E1E;
+      --mist:    #A8B8A0;
+      --ink:     #2A2016;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--bark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(245,239,226,0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(196,113,74,0.12);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; letter-spacing: 0.05em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--earth);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 4rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(196,113,74,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(168,184,160,0.15) 0%, transparent 60%);
+    }
+    /* decorative travel stamp rings */
+    .hero-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(196,113,74,0.18);
+      z-index: 0;
+    }
+    .ring1 { width: 420px; height: 420px; right: 8%; top: 50%; transform: translateY(-50%); }
+    .ring2 { width: 320px; height: 320px; right: 12%; top: 50%; transform: translateY(-50%); }
+    .ring3 { width: 180px; height: 180px; right: 18%; top: 50%; transform: translateY(-50%); }
+
+    .hero-content { position: relative; z-index: 1; max-width: 650px; }
+    .hero-eyebrow {
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--terra);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: var(--ink); margin-bottom: 1.6rem;
+    }
+    h1 em { font-style: italic; color: var(--terra); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--earth); max-width: 480px;
+      line-height: 1.8; margin-bottom: 2.8rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      background: var(--terra); color: #fff;
+      border-radius: 2px; text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--earth); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 0.6rem;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; color: var(--ink);
+      margin-bottom: 2rem; line-height: 1.15;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--warm); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; max-width: 1100px; margin: 0 auto;
+    }
+    .about-body { font-size: 1.05rem; color: var(--earth); line-height: 1.9; }
+    .about-body p + p { margin-top: 1.2rem; }
+    .about-visual {
+      position: relative; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .passport {
+      width: 220px; height: 310px;
+      background: var(--terra);
+      border-radius: 6px 6px 6px 6px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      box-shadow: 8px 12px 40px rgba(61,46,30,0.18);
+      position: relative; overflow: hidden;
+    }
+    .passport::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 4px,
+        rgba(255,255,255,0.03) 4px, rgba(255,255,255,0.03) 8px
+      );
+    }
+    .passport-icon { font-size: 3.5rem; line-height: 1; }
+    .passport-title {
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(255,255,255,0.9); font-size: 1.1rem; letter-spacing: 0.12em;
+      text-transform: uppercase; text-align: center; padding: 0 1.5rem;
+    }
+    .passport-line {
+      width: 100px; height: 1px; background: rgba(255,255,255,0.3);
+    }
+    .passport-name {
+      font-family: 'Cormorant Garamond', serif;
+      color: #fff; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.05em;
+    }
+
+    /* ── PASSIONS ── */
+    .passions-inner { max-width: 1100px; margin: 0 auto; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .card {
+      background: var(--warm);
+      border: 1px solid rgba(196,113,74,0.15);
+      border-radius: 4px;
+      padding: 2.2rem 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(61,46,30,0.1); }
+    .card-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .card p { font-size: 0.93rem; color: var(--earth); line-height: 1.7; }
+
+    /* ── PLACES ── */
+    .places { background: var(--bark); color: var(--sand); }
+    .places h2 { color: var(--sand); }
+    .places .section-label { color: var(--mist); }
+    .places-inner { max-width: 1100px; margin: 0 auto; }
+    .places-lead {
+      font-size: 1.05rem; color: rgba(245,239,226,0.7);
+      max-width: 540px; margin-bottom: 3rem; line-height: 1.9;
+    }
+    .stamps {
+      display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem;
+    }
+    .stamp {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(245,239,226,0.2);
+      border-radius: 100px;
+      font-size: 0.85rem; color: rgba(245,239,226,0.8);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CONTACT ── */
+    .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .contact-inner h2 { margin-bottom: 1rem; }
+    .contact-sub {
+      font-size: 1.05rem; color: var(--earth); margin-bottom: 2.8rem;
+    }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; font-size: 0.9rem; color: var(--earth);
+      border: 1px solid rgba(122,92,58,0.3);
+      padding: 0.7rem 1.6rem; border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      background: var(--terra); color: #fff; border-color: var(--terra);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(245,239,226,0.45);
+      text-align: center; padding: 2rem;
+      font-size: 0.8rem; letter-spacing: 0.06em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.4rem; }
+      .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { order: -1; }
+      .ring1, .ring2, .ring3 { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Asma A.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#passions">Passions</a></li>
+      <li><a href="#travels">Travels</a></li>
+      <li><a href="#contact">Say hello</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-ring ring1"></div>
+    <div class="hero-ring ring2"></div>
+    <div class="hero-ring ring3"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Creative &amp; explorer</p>
+      <h1>Hi, I'm<br><em>Asma</em><br>Abdulrahman</h1>
+      <p class="hero-sub">
+        A creative soul drawn to the beauty of nature, the richness of world cultures,
+        and the stories that food tells about the places we love.
+      </p>
+      <a href="#about" class="btn-primary">Explore my world</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div>
+        <p class="section-label">A little about me</p>
+        <h2>Creative spirit, curious heart</h2>
+        <div class="about-body">
+          <p>
+            I'm Asma — a designer who finds inspiration in the world around her.
+            Whether it's the geometry of a forest canopy, the colour palette of a
+            spice market, or the handwriting on a menu in a tucked-away café,
+            beauty is everywhere if you know how to look.
+          </p>
+          <p>
+            My creative work is shaped by travel and connection. Every new place I visit
+            teaches me something new about colour, form, and the human experience —
+            and I carry those lessons back into everything I make.
+          </p>
+          <p>
+            Food, for me, is never just food. It's a conversation with a culture,
+            a memory in the making, and one of the most honest forms of design
+            there is.
+          </p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="passport">
+          <div class="passport-icon">🌿</div>
+          <div class="passport-title">World Explorer</div>
+          <div class="passport-line"></div>
+          <div class="passport-name">Asma Abdulrahman</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSIONS -->
+  <section id="passions">
+    <div class="passions-inner">
+      <p class="section-label">What lights me up</p>
+      <h2>Things I love</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h3>Nature</h3>
+          <p>From misty mountain trails to sunlit coastlines, the natural world is my greatest source of calm and creativity.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✈️</div>
+          <h3>Travelling</h3>
+          <p>Each journey reshapes how I see. I travel slowly, curious about the ordinary details that make each place entirely itself.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🍜</div>
+          <h3>Food</h3>
+          <p>A bowl of hand-pulled noodles or a pot of slow-cooked stew — food is memory, craft, and culture all at once.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Design</h3>
+          <p>I work in the space where aesthetics meet meaning, creating work that feels both intentional and alive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVELS -->
+  <section class="places" id="travels">
+    <div class="places-inner">
+      <p class="section-label">Always somewhere new</p>
+      <h2>The world is my<br>studio</h2>
+      <p class="places-lead">
+        Travel isn't just something I do — it's how I think. New cultures teach me
+        new ways of seeing, and I carry those perspectives into every creative project I take on.
+      </p>
+      <div class="stamps">
+        <span class="stamp">🇯🇵 Japan</span>
+        <span class="stamp">🇲🇦 Morocco</span>
+        <span class="stamp">🇮🇹 Italy</span>
+        <span class="stamp">🇹🇷 Turkey</span>
+        <span class="stamp">🇹🇭 Thailand</span>
+        <span class="stamp">🇬🇷 Greece</span>
+        <span class="stamp">🇮🇳 India</span>
+        <span class="stamp">🇵🇹 Portugal</span>
+        <span class="stamp">+ more to come</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Get in touch</p>
+      <h2>Let's connect</h2>
+      <p class="contact-sub">
+        Whether you'd like to collaborate, share a food recommendation,
+        or just say hello — I'd love to hear from you.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:hello@asmaabdulrahman.com">
+          ✉️ Email me
+        </a>
+        <a class="contact-link" href="https://instagram.com" target="_blank" rel="noopener">
+          📷 Instagram
+        </a>
+        <a class="contact-link" href="https://linkedin.com" target="_blank" rel="noopener">
+          💼 LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Asma Abdulrahman &nbsp;·&nbsp; Designed with curiosity &amp; warmth</p>
+  </footer>
+
+</body>
+</html>
